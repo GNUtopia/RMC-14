@@ -139,7 +139,7 @@
   parent: RMCRailAttachmentBase
   id: RMCAttachmentS5RedDotSight # reddot
   name: S5 red-dot sight
-  description: An AEGIS S5 red-dot sight. A zero-magnification optic that offers faster, and more accurate target acquisition.
+  description: An AEGIS S5 red-dot sight. A zero-magnification optic that offers faster, and more accurate target acquisition. Not recommended for automatic fire.
   components:
   - type: Sprite
     state: reddot
@@ -150,6 +150,8 @@
   - type: AttachableVisuals
   - type: AttachableWeaponRangedMods
     modifiers:
+    - scatterFlat: -4
+      burstScatterAddMult: 1
     - conditions:
         wieldedOnly: true
       accuracyAddMult: 0.2
