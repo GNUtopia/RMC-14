@@ -41,3 +41,9 @@
   cost: 4
   inhand:
     - RMCGunCasePistolZHNK72
+
+- type: loadout
+  id: N58CaseRMC
+  cost: 4
+  inhand:
+    - RMCGunCasePistolN58

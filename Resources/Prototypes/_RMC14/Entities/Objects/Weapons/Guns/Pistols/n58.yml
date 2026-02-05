@@ -1,0 +1,106 @@
+- type: entity
+  parent: [RMCBaseSlideMagazineVisuals, CMWeaponPistolBase]
+  id: RMCWeaponPistolN58
+  name: N58 service pistol
+  description: The standard-issue sidearm of Nanotrasen security officers, sometimes kept by UNMC transfers. Rugged and reliable, but needs to be manually cocked after reloading. Chambered in 9mm.
+  suffix: Filled
+  components:
+  - type: RMCSelectiveFire
+    scatterWielded: 8
+    scatterUnwielded: 12
+    baseFireRate: 5
+    burstScatterMult: 1
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.2
+  - type: Gun
+    shotsPerBurst: 3
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_88m4_v7.ogg
+  - type: PumpAction
+    sound:
+      path: /Audio/_RMC14/Weapons/Guns/Cock/gun_pistol_cocked.ogg
+    examine: rmc-gun-rack-examine
+    popup: rmc-gun-rack-first
+    popupKey: rmc-gun-rack-first-with
+    once: true
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Pistols/n58.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Weapons/Guns/Pistols/n58.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: RMCMagazinePistolN58
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/gun_mk80_reload.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/gun_88m4_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - RMCMagazinePistolN58
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - RMCAttachmentBarrelCharger
+          - RMCAttachmentSuppressor
+          - RMCAttachmentSuppressorCompact
+          - RMCAttachmentExtendedBarrel
+          - RMCAttachmentRecoilCompensator
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - RMCAttachmentRailFlashlight
+          - RMCAttachmentMagneticHarness
+          - RMCAttachmentS5RedDotSight
+          - RMCAttachmentS5MicroRedDotSight
+          - RMCAttachmentS6ReflexSight
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - RMCAttachmentBurstFireAssembly
+          - RMCAttachmentLaserSight
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.655, 0.17
+      rmc-aslot-rail: -0.16, 0.225
+      rmc-aslot-underbarrel: 0.31, -0.22
+  - type: Tag
+    tags:
+    - Sidearm
+    - RMCWeaponPistolN58
+
+- type: entity
+  parent: CMBaseMagazinePistol
+  id: RMCMagazinePistolN58
+  name: N58 magazine (9mm)
+  components:
+  - type: Tag
+    tags:
+    - CMMagazinePistol
+    - RMCMagazinePistolN58
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - CMCartridgePistol9mm
+    proto: CMCartridgePistol9mm
+    capacity: 10
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/m1984.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+
+- type: Tag
+  id: RMCWeaponPistolN58
+
+- type: Tag
+  id: RMCMagazinePistolN58

@@ -386,6 +386,27 @@
       tags:
       - RMCBeltHolsterM13
 
+#N58
+- type: entity
+  parent: RMCGunCaseBase
+  id: RMCGunCasePistolN58
+  name: N58 service pistol case
+  description: A case containing a loaded N58 and two magazines for it.
+  components:
+    - type: Storage
+      maxItemSize: Huge
+      grid:
+      - 0,0,5,1
+      whitelist:
+       tags:
+       - RMCWeaponPistolN58
+       - RMCMagazinePistolN58
+    - type: StorageFill
+      contents:
+      - id: RMCWeaponPistolN58
+      - id: RMCMagazinePistolN58
+        amount: 2
+
 # rifles
 # M54C
 - type: entity
