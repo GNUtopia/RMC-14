@@ -30,6 +30,7 @@
     recoilUnwielded: 2
     scatterWielded: 6
     baseFireRate: 2.86
+    burstScatterMult: 3 # fully negated by bipod
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.25
     accuracyMultiplierUnwielded: 0.6
@@ -109,6 +110,7 @@
   - type: Tag
     tags:
     - RMCWeaponRifleM4SPR
+    - RMCGunBipodFullAuto
 
 - type: entity
   parent: WeaponRifleM4SPR
