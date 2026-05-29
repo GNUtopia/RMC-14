@@ -1,0 +1,147 @@
+- type: entity
+  parent: CMWeaponPistolBase
+  name: custom nailgun
+  id: RMCWeaponNailgunCustom
+  description: A nailgun that has been subjected to a bullpup conversion kit. It can't be used for construction anymore, but at least it looks kind of cool?
+  suffix: Filled
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Pistols/nailgun_custom.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-4
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Clothing
+    sprite: _RMC14/Objects/Weapons/Guns/SMGs/nailgun.rsi
+  - type: Item
+    size: Normal
+  - type: Gun
+    shotsPerBurst: 3
+    soundGunshot:
+      path: /Audio/_RMC14/Weapons/Guns/Gunshots/nailgun_fire.ogg
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - SemiAuto
+    - Burst
+    - FullAuto
+    recoilWielded: 1
+    recoilUnwielded: 1
+    scatterWielded: 8
+    scatterUnwielded: 8
+    baseFireRate: 2.4
+    burstScatterMult: 3
+    modifiers:
+      Burst:
+        fireDelay: 0.0999
+        maxScatterModifier: 10
+        useBurstScatterMult: true
+        unwieldedScatterMultiplier: 2
+        shotsToMaxScatter: 6
+      FullAuto:
+        maxScatterModifier: 3
+        useBurstScatterMult: true
+        unwieldedScatterMultiplier: 2
+        shotsToMaxScatter: 4
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.25
+    accuracyMultiplierUnwielded: 1.2
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: RMCMagazineSMGNailgun
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/smg_reload.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/smg_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - RMCMagazineSMGNailgun
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - RMCAttachmentRailFlashlight
+          - RMCAttachmentS5RedDotSight
+          - RMCAttachmentS5MicroRedDotSight
+          - RMCAttachmentS6ReflexSight
+      rmc-aslot-stock:
+        locked: true
+        startingAttachable: RMCAttachmentNailgunStock
+        whitelist:
+          tags:
+          - RMCAttachmentNailgunStock
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-rail: 0.1, 0.16
+      rmc-aslot-stock: -0.5, 0
+  - type: GunDamageModifier
+    multiplier: 1.2
+  - type: Tag
+    tags:
+    - RMCWeaponNailgunCustom
+
+- type: entity
+  parent: RMCStockAttachmentCollapsibleBase
+  id: RMCAttachmentNailgunStock
+  name: nailgun collapsible stock
+  description: How are you seeing this?
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Pistols/nailgun_custom.rsi
+    state: nailgunstock
+  - type: Tag
+    tags:
+    - RMCAttachmentStock
+    - RMCAttachmentNailgunStock
+  - type: AttachableToggleable
+    icon:
+      sprite: _RMC14/Objects/Weapons/Guns/Pistols/nailgun_custom.rsi
+      state: nailgunstock
+    iconActive:
+      sprite: _RMC14/Objects/Weapons/Guns/Pistols/nailgun_custom.rsi
+      state: nailgunstock-on
+    actionName: Toggle Nailgun Collapsible Stock
+  - type: AttachableSpeedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+        activeOnly: true
+      walk: -0.059
+      sprint: -0.101
+  - type: AttachableWieldDelayMods
+    modifiers:
+    - conditions:
+        activeOnly: true
+      delay: 0.4
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+        activeOnly: true
+      accuracyAddMult: 0.15
+      recoilFlat: -2
+      scatterFlat: -3
+      burstScatterAddMult: -1
+    - conditions:
+        unwieldedOnly: true
+        activeOnly: true
+      accuracyAddMult: -0.15
+      recoilFlat: 1
+      scatterFlat: 5
+  - type: AttachableSizeMods
+    modifiers:
+    - conditions:
+        activeOnly: true
+      size: 1
+
+- type: Tag
+  id: RMCWeaponNailgunCustom
+
+- type: Tag
+  id: RMCAttachmentNailgunStock
