@@ -541,6 +541,7 @@
   - CustomM44RMC
   - HG45AguilaCaseRMC
   - HG45MarinaCaseRMC
+  - CustomNailgunCaseRMC
 
 # SPP Weapons
 - type: loadoutGroup

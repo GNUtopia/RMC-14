@@ -474,6 +474,36 @@
       - id: RMCSpeedLoaderM44
         amount: 2
 
+# custom nailgun
+- type: entity
+  parent: RMCGunCaseBase
+  id: RMCGunCasePistolNailgunCustom
+  name: custom nailgun case
+  description: A case containing a loaded custom nailgun and one spare magazine.
+  components:
+    - type: Item
+      size: Small
+    - type: Sprite
+      noRot: false
+      sprite: _RMC14/Objects/Storage/D18case.rsi # Needs proper 'closed' Sprites, Open/Closed are identical atm
+      layers:
+      - state: closed
+    - type: Icon
+      sprite: _RMC14/Objects/Storage/D18case.rsi
+      state: closed
+    - type: Storage
+      maxItemSize: Huge
+      grid:
+      - 0,0,3,1
+      whitelist:
+       tags:
+       - RMCWeaponNailgunCustom
+       - RMCMagazineSMGNailgun
+    - type: StorageFill
+      contents:
+      - id: RMCWeaponNailgunCustom
+      - id: RMCMagazineSMGNailgun
+
 # rifles
 # M54C
 - type: entity

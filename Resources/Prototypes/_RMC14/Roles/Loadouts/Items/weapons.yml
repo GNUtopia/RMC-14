@@ -62,3 +62,9 @@
   cost: 4
   inhand:
     - RMCGunCasePistolZHNK72
+
+- type: loadout
+  id: CustomNailgunCaseRMC
+  cost: 4
+  inhand:
+    - RMCGunCasePistolHG45Marina
